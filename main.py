@@ -11,20 +11,23 @@ def show_motivation():
 
     # creating a background image for the canvas
     bg_image = Image.open("bg_pattern.jpg")
-    bg_image = bg_image.resize((750, 1300))
+    bg_image = bg_image.resize((750, 770))
     background_img = ImageTk.PhotoImage(bg_image)
 
     # creates Canvas
-    canvas = tkinter.Canvas(root, width= 750, height= 1300, highlightbackground='brown', highlightthickness= 4)
+    canvas = tkinter.Canvas(root, width= 750, height= 770, highlightbackground = '#ffffe6', highlightthickness= 4)
     canvas.pack()
     # adding the background image
     canvas.create_image(0, 0, image = background_img, anchor= tkinter.NW)
     
+ 
+    Img = Image.open("cameraimg.jpg")
+    Img = Img.resize((395,395))
+    motivation_img = ImageTk.PhotoImage(Img)
 
-    Img = ImageTk.PhotoImage(Image.open("cameraimg.jpg"))
-    canvas.create_image(500, 500, image = Img)
+    canvas.create_image(375,385, image=motivation_img, anchor = 'center')
 
-    canvas.create_text(200, 50, text= "Don't give up yet, remember you wanted to by a DSLR camera?", font=("Helvetica", 24))
+    canvas.create_text(370, 70, text= "Just a reminder. You were doing this to buy a new DSLR Camera, So keep going!", font=("Georgia", 18, "bold"), justify= 'center', fill='#60401f', width= 710)
 
     root.mainloop() # Runs the Tkinter event loop, which waits for user interaction.
 
@@ -52,4 +55,3 @@ def mouse_inactivity():
             inactivity_limit = 5
 
 mouse_inactivity()
-
